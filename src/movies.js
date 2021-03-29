@@ -83,6 +83,7 @@ let orderAlphabetically = (movies) => {
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
+// Yet to add avg- tie conditions
 bestYearAvg = (movies) => {
   if (movies == 0) return null;
   let bestYear = [];
@@ -93,7 +94,7 @@ bestYearAvg = (movies) => {
   let avg = total / movies.length;
   //console.log(avg)
   movies.filter((el) => {
-    if (avg === el.rate) {
+    if (avg == el.rate) {
       return bestYear.push(el.year);
     }
   });

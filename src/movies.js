@@ -9,9 +9,8 @@ let getAllDirectors = (movies) => {
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
 let howManyMovies = (movies) => {
-  if (movies.length == 0) {
-    return 0;
-  }
+  if (movies.length == 0) return 0;
+
   let bestMovies = movies.filter((el) => {
     return el.director == "Steven Spielberg" && el.genre.includes("Drama");
   });
@@ -22,9 +21,8 @@ let howManyMovies = (movies) => {
 
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
 let ratesAverage = (movies) => {
-  if (movies.length == 0) {
-    return 0;
-  }
+  if (movies.length == 0) return 0;
+
   let total = movies.reduce((acc, el) => {
     return el.rate ? acc + el.rate : acc;
   }, 0);
@@ -85,3 +83,20 @@ let orderAlphabetically = (movies) => {
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
+bestYearAvg = (movies) => {
+  if (movies == 0) return null;
+  let bestYear = [];
+  let total = movies.reduce((acc, el) => {
+    return acc + el.rate;
+  }, 0);
+  // console.log(total);
+  let avg = total / movies.length;
+  //console.log(avg)
+  movies.filter((el) => {
+    if (avg === el.rate) {
+      return bestYear.push(el.year);
+    }
+  });
+
+  return `The best year was ${bestYear} with an average rate of ${avg}`;
+};
